@@ -1,0 +1,77 @@
+print("====================================")
+print("         CONTACT BOOK")
+print("====================================")
+contacts = {}
+while True:
+
+    print("\nChoose an Option")
+    print("1. Add Contact")
+    print("2. View Contacts")
+    print("3. Search Contact")
+    print("4. Update Contact")
+    print("5. Delete Contact")
+    print("6. Exit")
+
+    choice = input("\nEnter your choice (1-6): ")
+    if choice == '1':
+
+        name = input("Enter contact name: ")
+        phone = input("Enter phone number: ")
+
+        contacts[name] = phone
+
+        print("✅ Contact added successfully!")
+    elif choice == '2':
+
+        if len(contacts) == 0:
+            print("📌 No contacts available.")
+
+        else:
+            print("\n===== CONTACT LIST =====")
+
+            for name, phone in contacts.items():
+                print(f"{name} : {phone}")
+    elif choice == '3':
+
+        search_name = input("Enter contact name to search: ")
+
+        if search_name in contacts:
+            print(f"📞 {search_name} : {contacts[search_name]}")
+
+        else:
+            print("❌ Contact not found.")
+    elif choice == '4':
+
+        update_name = input("Enter contact name to update: ")
+
+        if update_name in contacts:
+
+            new_phone = input("Enter new phone number: ")
+            contacts[update_name] = new_phone
+
+            print("✅ Contact updated successfully!")
+
+        else:
+            print("❌ Contact not found.")
+    elif choice == '5':
+
+        delete_name = input("Enter contact name to delete: ")
+
+        if delete_name in contacts:
+
+            del contacts[delete_name]
+
+            print("🗑️ Contact deleted successfully!")
+
+        else:
+            print("❌ Contact not found.")
+    elif choice == '6':
+
+        print("\n====================================")
+        print("          THANK YOU")
+        print("====================================")
+
+        break
+
+    else:
+        print("❌ Invalid choice! Please try again.")
